@@ -7,6 +7,7 @@ return {
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.gofumpt,
         null_ls.builtins.formatting.jq,
+        null_ls.builtins.formatting.goimports,
       },
     })
     vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format, {})
