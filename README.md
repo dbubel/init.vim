@@ -10,6 +10,7 @@
 - `terraform-ls`
 - `yaml-language-server`
 - `goimports`
+- `vetur-vls`
 *To install the latest zig daily and zls you need do the following:
 
 mv zig-out/bin/zls ~/.local/share/nvim/mason/packages/zls/zls
