@@ -10,6 +10,7 @@
   "gitsigns.nvim": { "branch": "main", "commit": "805610a9393fa231f2c2b49cb521bfa413fadb3d" },
   "go.nvim": { "branch": "master", "commit": "d5e2b8cdd84afdb0c49c42a6e8972acc645e0283" },
   "guihua.lua": { "branch": "master", "commit": "5204646be15997ed101631d75df02512ecd6c2bb" },
+  "harpoon": { "branch": "harpoon2", "commit": "0378a6c428a0bed6a2781d459d7943843f374bce" },
   "hierarchy-tree-go": { "branch": "main", "commit": "9fab9ddefe81edab4a144824955d2d085db3f49a" },
   "lazy.nvim": { "branch": "main", "commit": "d3974346b6cef2116c8e7b08423256a834cb7cbc" },
   "lsp_signature.nvim": { "branch": "master", "commit": "c6aeb2f1d2538bbdfdaab1664d9d4c3c75aa9db8" },
