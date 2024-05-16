@@ -9,7 +9,17 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "eslint", "vuels", "terraformls", "yamlls", "pylsp", "gopls", "lua_ls", "zls" },
+				ensure_installed = {
+					"dockerls",
+					"eslint",
+					"vuels",
+					"terraformls",
+					"yamlls",
+					"pylsp",
+					"gopls",
+					"lua_ls",
+					"zls",
+				},
 			})
 		end,
 	},
@@ -27,6 +37,7 @@ return {
 			lspconfig.terraformls.setup({ capabilities = capabilities })
 			lspconfig.vuels.setup({ capabilities = capabilities })
 			lspconfig.eslint.setup({ capabilities = capabilities })
+			lspconfig.dockerls.setup({ capabilities = capabilities })
 
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})

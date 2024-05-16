@@ -34,5 +34,11 @@ return {
 		vim.keymap.set("n", "<C-S-N>", function()
 			harpoon:list():next()
 		end)
+		vim.keymap.set("n", "<Tab>", function()
+			harpoon:ui():nav_next()
+		end)
+		vim.keymap.set("n", "<S-Tab>", function()
+			harpoon:ui():nav_next()
+		end)
 	end,
 }
