@@ -15,10 +15,10 @@ return {
 					"vuels",
 					"terraformls",
 					"yamlls",
-					"pylsp",
+					-- "pylsp",
 					"gopls",
 					"lua_ls",
-					"zls",
+					-- "zls",
 				},
 			})
 		end,
@@ -38,6 +38,7 @@ return {
 			lspconfig.vuels.setup({ capabilities = capabilities })
 			lspconfig.eslint.setup({ capabilities = capabilities })
 			lspconfig.dockerls.setup({ capabilities = capabilities })
+			lspconfig.jqls.setup({ capabilities = capabilities })
 
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})

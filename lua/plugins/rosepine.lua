@@ -8,7 +8,7 @@ return {
 			dark_variant = "main", -- main, moon, or dawn
 			dim_inactive_windows = false,
 			extend_background_behind_borders = true,
-			disable_background = true,
+			-- disable_background = true,
 			enable = {
 				terminal = true,
 				legacy_highlights = true, -- Improve compatibility for previous versions of Neovim

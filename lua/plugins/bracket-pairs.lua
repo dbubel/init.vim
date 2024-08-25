@@ -1,12 +1,3 @@
--- return {
--- 	"raimondi/delimitMate",
--- }
--- return {
---   "windwp/nvim-autopairs",
---   event = "InsertEnter",
---   opts = {}, -- this is equalent to setup({}) function
--- }
--- autopairing of (){}[] etc
 return {
   "windwp/nvim-autopairs",
   opts = {
