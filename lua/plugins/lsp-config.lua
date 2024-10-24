@@ -37,6 +37,7 @@ return {
 			lspconfig.terraformls.setup({ capabilities = capabilities })
 			lspconfig.vuels.setup({ capabilities = capabilities })
 			lspconfig.eslint.setup({ capabilities = capabilities })
+			lspconfig.ts_ls.setup({ capabilities = capabilities })
 			lspconfig.dockerls.setup({ capabilities = capabilities })
 
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
