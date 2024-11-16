@@ -16,3 +16,4 @@
 mv zig-out/bin/zls ~/.local/share/nvim/mason/packages/zls/zls
 cd ~/.local/share/nvim/mason/bin/
 ln -s ~/.local/share/nvim/mason/packages/zls/zls
+
