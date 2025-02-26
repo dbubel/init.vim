@@ -154,20 +154,6 @@ require("lazy").setup({
     end,
   },
   {
-    "jackMort/ChatGPT.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("chatgpt").setup()
-      vim.keymap.set("n", "<leader>ai", "<cmd> ChatGPT <CR>")
-    end,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "folke/trouble.nvim", -- optional
-      "nvim-telescope/telescope.nvim",
-    },
-  },
-  {
     "jose-elias-alvarez/null-ls.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
@@ -178,83 +164,6 @@ require("lazy").setup({
         },
       })
     end,
-  },
-  -- colipilot
-  {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    config = function()
-      require("copilot").setup({
-        panel = {
-          enabled = false,
-          auto_refresh = false,
-          keymap = {
-            jump_prev = "[[",
-            jump_next = "]]",
-            accept = "<CR>",
-            refresh = "gr",
-            open = "<M-CR>"
-          },
-          layout = {
-            position = "bottom",
-            ratio = 0.4
-          },
-        },
-        suggestion = {
-          enabled = false,
-          auto_trigger = true,
-          debounce = 75,
-          keymap = {
-            accept = "<M-l>",
-            accept_word = "<M-w>",
-            accept_line = "<C-m>",
-            next = "<M-]>",
-            prev = "<M-[>",
-            dismiss = "<M-h>"
-          },
-        },
-        filetypes = {
-          yaml = false,
-          markdown = false,
-          help = false,
-          gitcommit = false,
-          gitrebase = false,
-          hgcommit = false,
-          svn = false,
-          cvs = false,
-          ["."] = false
-        },
-        copilot_node_command = 'node',
-        server_opts_overrides = {}
-      })
-    end
-  },
-
-  -- Optional: Copilot Chat (if you want in-editor chat functionality)
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary",
-    dependencies = {
-      { "zbirenbaum/copilot.lua" },
-      { "nvim-lua/plenary.nvim" }
-    },
-    config = function()
-      require("CopilotChat").setup({
-        debug = false,
-        window = {
-          layout = 'float',
-          relative = 'cursor',
-          width = 0.8,
-          height = 0.6,
-        },
-      })
-    end,
-    keys = {
-      { "<leader>cc", "<cmd>CopilotChatToggle<cr>",  desc = "Toggle Copilot Chat" },
-      { "<leader>ce", "<cmd>CopilotChatExplain<cr>", desc = "Explain Code" },
-      { "<leader>cr", "<cmd>CopilotChatReview<cr>",  desc = "Review Code" },
-    }
   },
   -- NvTerm (Terminal Plugin)
   {
