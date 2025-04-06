@@ -11,14 +11,14 @@ return {
         -- delve configurations
         delve = {
           -- the path to the executable dlv which will be used for debugging
-          path = "/Users/debubel/go/bin/dlv", -- Use the same path as in dap.lua
+          path = "dlv",  -- Use the same path as in dap.lua
           -- time to wait for delve to initialize the debug session
           initialize_timeout_sec = 20,
           -- a string that defines the port to start delve debugger
           -- Use the same fixed port as in dap.lua to avoid conflicts
           port = "38697",
           -- Additional arguments to pass to dlv
-          args = {"--check-go-version=false"},
+          args = { "--check-go-version=false" },
           -- Set to true to run Delve in detached mode (recommended on non-Windows)
           detached = true,
           -- Build flags to pass to the go compiler
@@ -58,9 +58,9 @@ return {
     end,
     keys = {
       -- Go-specific debug keymaps with more distinct patterns
-      { "<leader>gdt", "<cmd>lua require('dap-go').debug_test()<CR>", desc = "Debug go test" },
-      { "<leader>gdl", "<cmd>lua require('dap-go').debug_last_test()<CR>", desc = "Debug last go test" },
-      { "<leader>gdr", "<cmd>lua require('dap-go').debug_last()<CR>", desc = "Run previous go config" },
+      { "<leader>gdt", "<cmd>lua require('dap-go').debug_test()<CR>",       desc = "Debug go test" },
+      { "<leader>gdl", "<cmd>lua require('dap-go').debug_last_test()<CR>",  desc = "Debug last go test" },
+      { "<leader>gdr", "<cmd>lua require('dap-go').debug_last()<CR>",       desc = "Run previous go config" },
       { "<leader>gdb", "<cmd>lua require('dap-go').debug_breakpoint()<CR>", desc = "Break at cursor" },
     },
   },
