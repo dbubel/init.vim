@@ -9,6 +9,7 @@ require("mason-lspconfig").setup({
     "eslint",
     "clangd",        -- For C/C++ support
     "terraform-ls",  -- For Terraform support
+    "zls",           -- For Zig language support
   },
 })
 
@@ -111,6 +112,17 @@ lspconfig.terraformls.setup({
       "*.tf",
       "*.tfvars",
       ".terraform",
+      ".git"
+    )(fname)
+  end,
+})
+
+-- Configure zls for Zig
+lspconfig.zls.setup({
+  filetypes = { "zig", "zir" },
+  root_dir = function(fname)
+    return require("lspconfig.util").root_pattern(
+      "build.zig",
       ".git"
     )(fname)
   end,

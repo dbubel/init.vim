@@ -9,4 +9,5 @@ return {
   require("plugins.vue"),
   require("plugins.c"),
   require("plugins.terraform"),
+  require("plugins.zig"),
 }
