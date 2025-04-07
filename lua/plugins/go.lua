@@ -11,7 +11,7 @@ return {
         -- delve configurations
         delve = {
           -- the path to the executable dlv which will be used for debugging
-          path = "dlv",  -- Use the same path as in dap.lua
+          path = "dlv", -- Use the same path as in dap.lua
           -- time to wait for delve to initialize the debug session
           initialize_timeout_sec = 20,
           -- a string that defines the port to start delve debugger
