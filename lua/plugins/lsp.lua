@@ -48,6 +48,9 @@ return {
           css = { { "prettierd", "prettier" } },
           scss = { { "prettierd", "prettier" } },
           json = { { "prettierd", "prettier" } },
+          terraform = { "terraform_fmt" },
+          ["terraform-vars"] = { "terraform_fmt" },
+          hcl = { "terraform_fmt" },
         },
         format_on_save = {
           timeout_ms = 500,

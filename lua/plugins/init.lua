@@ -8,4 +8,5 @@ return {
   require("plugins.go"),
   require("plugins.vue"),
   require("plugins.c"),
+  require("plugins.terraform"),
 }

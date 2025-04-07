@@ -5,7 +5,9 @@ require("nvim-treesitter.configs").setup({
     -- Web development
     "javascript", "typescript", "vue", "html", "css", "scss", "json",
     -- C programming
-    "c", "cmake", "make"
+    "c", "cmake", "make",
+    -- Terraform/HCL
+    "terraform", "hcl"
   },
   sync_install = false,
   auto_install = true,

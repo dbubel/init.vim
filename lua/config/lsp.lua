@@ -8,6 +8,7 @@ require("mason-lspconfig").setup({
     "vue-language-server",
     "eslint",
     "clangd",        -- For C/C++ support
+    "terraform-ls",  -- For Terraform support
   },
 })
 
@@ -97,6 +98,19 @@ lspconfig.clangd.setup({
     return require("lspconfig.util").root_pattern(
       "compile_commands.json",
       "compile_flags.txt",
+      ".git"
+    )(fname)
+  end,
+})
+
+-- Configure terraform-ls for Terraform
+lspconfig.terraformls.setup({
+  filetypes = { "terraform", "terraform-vars", "hcl" },
+  root_dir = function(fname)
+    return require("lspconfig.util").root_pattern(
+      "*.tf",
+      "*.tfvars",
+      ".terraform",
       ".git"
     )(fname)
   end,
