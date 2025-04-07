@@ -6,4 +6,6 @@ return {
   require("plugins.editor"),
   require("plugins.dap"),
   require("plugins.go"),
+  require("plugins.vue"),
+  require("plugins.c"),
 }

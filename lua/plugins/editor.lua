@@ -110,6 +110,8 @@ return {
         ts_config = {
           lua = { "string", "source" },
           javascript = { "string", "template_string" },
+          typescript = { "string", "template_string" },
+          vue = { "string", "template_string" },
         },
         disable_filetype = { "TelescopePrompt", "spectre_panel" },
         fast_wrap = {
@@ -408,7 +410,7 @@ return {
     dependencies = { "nvim-telescope/telescope.nvim" },
     config = function()
       require("project_nvim").setup({
-        patterns = { ".git", "Makefile", "package.json", "go.mod", "Cargo.toml" },
+        patterns = { ".git", "Makefile", "package.json", "go.mod", "Cargo.toml", "vue.config.js", "nuxt.config.js", "vite.config.js", "CMakeLists.txt" },
         detection_methods = { "pattern", "lsp" },
         silent_chdir = true,
         show_hidden = true,
