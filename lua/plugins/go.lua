@@ -73,8 +73,17 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
     config = function()
-      require("go").setup({})
+      require("go").setup({
+        -- Specify the exact path to goimports
+        goimport = "/Users/debubel/go/bin/goimports",
+        -- Enable formatting on save 
+        formatter = "gofmt",
+        -- Don't auto-install tools to avoid errors
+        install_package = false,
+      })
       vim.keymap.set("n", "<leader>tf", ":GoTestFunc -v <CR>", {})
+      -- Add key mapping for manual imports formatting
+      vim.keymap.set("n", "<leader>gi", ":GoImports<CR>", { desc = "Run goimports" })
     end,
     event = { "CmdlineEnter" },
     ft = { "go", "gomod" },

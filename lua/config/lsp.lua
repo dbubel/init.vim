@@ -15,8 +15,12 @@ require("mason-lspconfig").setup({
 
 local lspconfig = require("lspconfig")
 
+-- Set up capabilities for LSP
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 -- Configure gopls
 lspconfig.gopls.setup({
+  capabilities = capabilities,
   settings = {
     gopls = {
       analyses = {
@@ -29,6 +33,7 @@ lspconfig.gopls.setup({
 
 -- Configure lua_ls
 lspconfig.lua_ls.setup({
+  capabilities = capabilities,
   settings = {
     Lua = {
       diagnostics = {
@@ -44,6 +49,7 @@ lspconfig.lua_ls.setup({
 
 -- Configure Vue Language Server for Vue 3
 lspconfig.volar.setup({
+  capabilities = capabilities,
   filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'},
   init_options = {
     typescript = {
@@ -77,6 +83,7 @@ lspconfig.volar.setup({
 
 -- Configure ESLint
 lspconfig.eslint.setup({
+  capabilities = capabilities,
   on_attach = function(client, bufnr)
     vim.api.nvim_create_autocmd("BufWritePre", {
       buffer = bufnr,
@@ -87,6 +94,7 @@ lspconfig.eslint.setup({
 
 -- Configure clangd for C/C++
 lspconfig.clangd.setup({
+  capabilities = capabilities,
   cmd = {
     "clangd",
     "--background-index",
@@ -106,6 +114,7 @@ lspconfig.clangd.setup({
 
 -- Configure terraform-ls for Terraform
 lspconfig.terraformls.setup({
+  capabilities = capabilities,
   filetypes = { "terraform", "terraform-vars", "hcl" },
   root_dir = function(fname)
     return require("lspconfig.util").root_pattern(
@@ -119,6 +128,7 @@ lspconfig.terraformls.setup({
 
 -- Configure zls for Zig
 lspconfig.zls.setup({
+  capabilities = capabilities,
   filetypes = { "zig", "zir" },
   root_dir = function(fname)
     return require("lspconfig.util").root_pattern(

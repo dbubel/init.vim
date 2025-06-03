@@ -96,6 +96,29 @@ return {
     end
   },
 
+  -- Fugitive for Git commands
+  {
+    "tpope/vim-fugitive",
+    cmd = { "Git", "Gstatus", "Gblame", "Gpush", "Gpull", "Gdiffsplit" },
+    keys = {
+      { "<leader>gs", "<cmd>Git<cr>", desc = "Git Status" },
+      { "<leader>gb", "<cmd>Git blame<cr>", desc = "Git Blame" },
+      { "<leader>gc", "<cmd>Git commit<cr>", desc = "Git Commit" },
+      { "<leader>gd", "<cmd>Gdiffsplit!<cr>", desc = "Git Diff Split" },
+    },
+    config = function()
+      -- Key mappings for merge conflict resolution
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "fugitive" },
+        callback = function()
+          -- Set local mappings for fugitive buffer
+          vim.keymap.set("n", "<leader>gj", "<cmd>diffget //3<CR>", { buffer = true, desc = "Accept Theirs" })
+          vim.keymap.set("n", "<leader>gf", "<cmd>diffget //2<CR>", { buffer = true, desc = "Accept Ours" })
+        end,
+      })
+    end,
+  },
+
   -- Autopairs
   {
     "windwp/nvim-autopairs",
@@ -274,8 +297,15 @@ return {
         -- Git
         ["<leader>g"] = {
           d = { "<cmd>DiffviewOpen<cr>", "Diff View" },
+          D = { "<cmd>Gdiffsplit!<cr>", "Git Diff Split (Fugitive)" },
           h = { "<cmd>DiffviewFileHistory %<cr>", "Current File History" },
           H = { "<cmd>DiffviewFileHistory<cr>", "Git File History" },
+          s = { "<cmd>Git<cr>", "Git Status (Fugitive)" },
+          b = { "<cmd>Git blame<cr>", "Git Blame (Fugitive)" },
+          c = { "<cmd>Git commit<cr>", "Git Commit (Fugitive)" },
+          f = { "<cmd>diffget //2<cr>", "Accept Ours (in diff)" },
+          j = { "<cmd>diffget //3<cr>", "Accept Theirs (in diff)" },
+          i = { "<cmd>GoImports<cr>", "Run goimports" },
         },
         
         -- Harpoon

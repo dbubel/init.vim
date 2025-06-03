@@ -1,4 +1,16 @@
 return {
+  -- Mason
+  {
+    "williamboman/mason.nvim",
+    build = ":MasonUpdate",
+  },
+
+  -- Mason LSP Config
+  {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = { "williamboman/mason.nvim" },
+  },
+
   -- LSP Support
   {
     "neovim/nvim-lspconfig",
@@ -6,12 +18,6 @@ return {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
     },
-  },
-
-  -- Mason
-  {
-    "williamboman/mason.nvim",
-    build = ":MasonUpdate",
     config = function()
       require("config.lsp")
     end,
@@ -48,6 +54,7 @@ return {
           css = { { "prettierd", "prettier" } },
           scss = { { "prettierd", "prettier" } },
           json = { { "prettierd", "prettier" } },
+          go = { "goimports" },
           terraform = { "terraform_fmt" },
           ["terraform-vars"] = { "terraform_fmt" },
           hcl = { "terraform_fmt" },
