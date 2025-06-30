@@ -61,31 +61,37 @@ return {
       vim.api.nvim_create_user_command("DapLogPoint", set_logpoint, {})
     end,
     keys = {
-      { "<leader>db", "<cmd>DapToggleBreakpoint<CR>", desc = "Toggle breakpoint" },
-      { "<leader>dc", "<cmd>DapContinue<CR>", desc = "Start/Continue debugging" },
-      { "<leader>dt", "<cmd>DapTerminate<CR>", desc = "Terminate DAP" },
+      { "<leader>db", "<cmd>DapToggleBreakpoint<CR>",           desc = "Toggle breakpoint" },
+      { "<leader>dc", "<cmd>DapContinue<CR>",                   desc = "Start/Continue debugging" },
+      { "<leader>dt", "<cmd>DapTerminate<CR>",                  desc = "Terminate DAP" },
       { "<leader>du", function() require("dapui").toggle() end, desc = "Toggle DAP UI" },
-      { "<leader>di", "<cmd>DapStepInto<CR>", desc = "Step into" },
-      { "<leader>do", "<cmd>DapStepOver<CR>", desc = "Step over" },
-      { "<leader>dO", "<cmd>DapStepOut<CR>", desc = "Step out" },
-      { "<leader>dr", "<cmd>DapToggleRepl<CR>", desc = "Toggle REPL" },
-      { "<leader>dB", function() 
+      { "<leader>di", "<cmd>DapStepInto<CR>",                   desc = "Step into" },
+      { "<leader>do", "<cmd>DapStepOver<CR>",                   desc = "Step over" },
+      { "<leader>dO", "<cmd>DapStepOut<CR>",                    desc = "Step out" },
+      { "<leader>dr", "<cmd>DapToggleRepl<CR>",                 desc = "Toggle REPL" },
+      {
+        "<leader>dB",
+        function()
           vim.ui.input({ prompt = "Breakpoint condition: " }, function(condition)
             if condition then
               require("dap").set_breakpoint(condition)
               vim.notify("Conditional breakpoint set: " .. condition, vim.log.levels.INFO)
             end
           end)
-        end, desc = "Set conditional breakpoint" 
+        end,
+        desc = "Set conditional breakpoint"
       },
-      { "<leader>dp", function() 
+      {
+        "<leader>dp",
+        function()
           vim.ui.input({ prompt = "Log message: " }, function(message)
             if message then
               require("dap").set_breakpoint(nil, nil, message)
               vim.notify("Logpoint set: " .. message, vim.log.levels.INFO)
             end
           end)
-        end, desc = "Set log point" 
+        end,
+        desc = "Set log point"
       },
     },
   },

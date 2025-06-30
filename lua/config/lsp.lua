@@ -4,12 +4,9 @@ require("mason-lspconfig").setup({
   ensure_installed = {
     "gopls",
     "lua_ls",
-    "typescript-language-server", -- Will be used by Volar
-    "vue-language-server",
     "eslint",
-    "clangd",        -- For C/C++ support
-    "terraform-ls",  -- For Terraform support
-    "zls",           -- For Zig language support
+    "clangd", -- For C/C++ support
+    "zls",    -- For Zig language support
   },
 })
 
@@ -50,10 +47,11 @@ lspconfig.lua_ls.setup({
 -- Configure Vue Language Server for Vue 3
 lspconfig.volar.setup({
   capabilities = capabilities,
-  filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'},
+  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' },
   init_options = {
     typescript = {
-      tsdk = vim.fn.expand('$HOME') .. '/.local/share/nvim/mason/packages/typescript-language-server/node_modules/typescript/lib'
+      tsdk = vim.fn.expand('$HOME') ..
+          '/.local/share/nvim/mason/packages/typescript-language-server/node_modules/typescript/lib'
     },
     vue = {
       hybridMode = false, -- Using Takeover Mode instead of Hybrid Mode
