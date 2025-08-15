@@ -15,6 +15,7 @@ keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find buffers" 
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Help tags" })
 keymap("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Recent files" })
 keymap("n", "<leader>fs", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Search in buffer" })
+keymap("n", "<leader>fj", "<cmd>Telescope current_buffer_fuzzy_find case_mode=ignore_case<cr>", { desc = "Find in file" })
 keymap("n", "<leader>fc", "<cmd>Telescope git_commits<cr>", { desc = "Git commits" })
 keymap("n", "<leader>fp", "<cmd>Telescope projects<cr>", { desc = "Projects" })
 
