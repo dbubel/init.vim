@@ -12,9 +12,12 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Load core settings
-require("core.options")
-require("core.keymaps")
-
 -- Load plugins
-require("lazy").setup("plugins")
+require("lazy").setup("plugins", {
+  change_detection = {
+    notify = false,
+  },
+  rocks = {
+    enabled = false,
+  },
+})
