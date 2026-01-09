@@ -21,3 +21,6 @@ require("lazy").setup("plugins", {
     enabled = false,
   },
 })
+
+-- Load keymaps
+require("config.keymaps")
