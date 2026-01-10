@@ -3,7 +3,7 @@ vim.keymap.set("n", ";", ":", { desc = "Quick command mode" })
 
 -- LSP keybinds
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
-vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Go to references" })
+vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", { desc = "Go to references" })
 vim.keymap.set("n", "ra", vim.lsp.buf.rename, { desc = "Rename" })
 vim.keymap.set("n", "ca", vim.lsp.buf.code_action, { desc = "Code action" })
 vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Show diagnostic" })
