@@ -11,6 +11,10 @@ return {
     vim.lsp.config.gopls = {
       capabilities = capabilities,
     }
+    vim.lsp.config.jsonls = {
+      capabilities = capabilities,
+    }
     vim.lsp.enable("gopls")
+    vim.lsp.enable("jsonls")
   end,
 }
