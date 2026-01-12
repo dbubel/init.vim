@@ -1,5 +1,6 @@
 -- General keybinds
 vim.keymap.set("n", ";", ":", { desc = "Quick command mode" })
+vim.keymap.set("n", "<leader>x", "<cmd>bd<cr>", { desc = "Close buffer" })
 
 -- LSP keybinds
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
