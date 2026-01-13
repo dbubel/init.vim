@@ -14,7 +14,11 @@ return {
     vim.lsp.config.jsonls = {
       capabilities = capabilities,
     }
+    vim.lsp.config.marksman = {
+      capabilities = capabilities,
+    }
     vim.lsp.enable("gopls")
     vim.lsp.enable("jsonls")
+    vim.lsp.enable("marksman")
   end,
 }
