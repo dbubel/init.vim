@@ -9,6 +9,7 @@ vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", { desc = "Go to r
 vim.keymap.set("n", "ra", vim.lsp.buf.rename, { desc = "Rename" })
 vim.keymap.set("n", "ca", vim.lsp.buf.code_action, { desc = "Code action" })
 vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Show diagnostic" })
+vim.keymap.set("n", "<leader>lr", "<cmd>LspRestart<cr>", { desc = "Restart LSP" })
 vim.keymap.set("n", "<leader>fm", function()
   vim.lsp.buf.code_action({
     context = { only = { "source.organizeImports" } },
