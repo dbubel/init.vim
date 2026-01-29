@@ -9,4 +9,3 @@ vim.opt.cursorline = true
 vim.opt.wrap = false
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
