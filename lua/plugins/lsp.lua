@@ -109,6 +109,20 @@ return {
         },
       })
 
+      -- zls is built from source (~/.local/src/zls) to match Zig 0.17; Mason only ships 0.16.
+      -- Once zls 0.17.0 is tagged, this can go back to the Mason package.
+      vim.lsp.config("zls", {
+        cmd = { vim.fn.expand("~/.local/bin/zls") },
+        settings = {
+          zls = {
+            zig_exe_path = "/opt/homebrew/bin/zig",
+            enable_build_on_save = true,
+            semantic_tokens = "partial",
+          },
+        },
+      })
+      vim.lsp.enable("zls")
+
       -- Install servers + tools, auto-enable installed servers
       require("mason-lspconfig").setup({ automatic_enable = true })
       require("mason-tool-installer").setup({
@@ -123,7 +137,6 @@ return {
           "json-lsp",
           "yaml-language-server",
           "marksman",
-          "zls",
           "basedpyright",
           "ruff",
           "lua-language-server",
