@@ -4,35 +4,48 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {
-      options = {
-        theme = "catppuccin-mocha",
-        globalstatus = true,
-        component_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
-      },
-      sections = {
-        lualine_b = { "branch", "diff", "diagnostics" },
-        lualine_c = { { "filename", path = 1 } },
-        lualine_x = {
-          {
-            function()
-              local clients = vim.lsp.get_clients({ bufnr = 0 })
-              if #clients == 0 then
-                return ""
-              end
-              return " " .. table.concat(
-                vim.tbl_map(function(c)
-                  return c.name
-                end, clients),
-                ","
-              )
-            end,
-          },
-          "filetype",
-        },
+    keys = {
+      {
+        "<leader>ts",
+        function()
+          require("util.sysstats").toggle()
+        end,
+        desc = "Toggle system stats",
       },
     },
+    opts = function()
+      local sysstats = require("util.sysstats")
+      sysstats.start()
+      return {
+        options = {
+          theme = "catppuccin-mocha",
+          globalstatus = true,
+          component_separators = { left = "", right = "" },
+          section_separators = { left = "", right = "" },
+        },
+        sections = {
+          lualine_b = { "branch", "diff", "diagnostics" },
+          lualine_c = { { "filename", path = 1 } },
+          lualine_x = vim.list_extend(sysstats.components(), {
+            {
+              function()
+                local clients = vim.lsp.get_clients({ bufnr = 0 })
+                if #clients == 0 then
+                  return ""
+                end
+                return " " .. table.concat(
+                  vim.tbl_map(function(c)
+                    return c.name
+                  end, clients),
+                  ","
+                )
+              end,
+            },
+            "filetype",
+          }),
+        },
+      }
+    end,
   },
 
   -- Discoverable keymaps: pause after <leader> to see what's available

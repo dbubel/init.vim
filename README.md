@@ -22,6 +22,8 @@ brew install neovim git ripgrep fd node go zig terraform
 - `go`, `terraform`, `zig`: toolchains for the languages configured
 - A [Nerd Font](https://www.nerdfonts.com/) set in your terminal (icons)
 - A C compiler (`xcode-select --install`) for Treesitter parsers
+- Optional: `brew install macmon` for CPU temperature in the statusline (Apple Silicon, no sudo).
+  Without it the temp segment is hidden and memory falls back to `vm_stat`.
 
 ### 2. Install the config
 
@@ -67,6 +69,7 @@ If your Zig lives elsewhere (e.g. Intel Mac, `/usr/local/bin/zig`), edit
 ```
 init.lua                  leader keys, loads config.*
 lua/config/               options, keymaps, autocmds, lazy bootstrap
+lua/util/sysstats.lua     background CPU / temp / mem / disk / load sampling for lualine
 lua/plugins/              one file per concern (lsp, completion, telescope, git, ...)
 lazy-lock.json            pinned plugin versions
 .stylua.toml              formatting rules for this repo's Lua
@@ -88,6 +91,7 @@ Leader is `<Space>`. Press it and wait for which-key to list everything.
 | `<leader>cs` | Symbols |
 | `<leader>cd` | Line diagnostics |
 | `<leader>th` | Toggle inlay hints |
+| `<leader>ts` | Toggle system stats in the statusline |
 | `<leader>gc` / `<leader>gs` | Git commits / status |
 | `<S-h>` / `<S-l>` | Previous / next buffer |
 | `<C-h/j/k/l>` | Move between windows |
